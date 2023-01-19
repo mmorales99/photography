@@ -1,1 +1,205 @@
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>@mmoralitos99</title>
+	<meta name="description" content="Fotografías hechas por Manolo, aquí se pueden descargar."/>
+	<link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet"/>
+	<style>
+        html{
+            background-color: rgb(20, 20, 20);
+			font-size: 16px;
+			font-family: "DM Sans", Sans-Serif, monospace;
+			color: rgb(210, 210, 205);
+			padding-top: 1%;
+			padding-bottom: 1%;
+			padding-left: 20%;
+			padding-right: 20%;
+        }
+		h3{
+			font-size: 22px;
+		}
+		body{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		#title{
+			font-size: 3rem;
+			font-variant: small-caps;
+			font-style: italic;
+			font-weight: 400;
+			border-bottom: 0.4rem solid rgb(210, 210, 205);
+			padding-bottom: 0.2rem;
+			width: fit-content;
+			height: fit-content;
+		}
+		.girl{
+			width: 500px;
+			display: flex;
+			flex-direction: row;
+			align-content: center;
+			justify-content: center;
+			align-items: center;
+		}
+		.presentation{
+			width: 150px;
+			height: 150px;
+			object-fit: scale-down;
+			object-position: 50% 30%;
+			z-index: 0;
+			border-radius: 50%;
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+		}
+		a{
+			color: rgb(210, 210, 205);
+		}
+		.info{
+			font-variant: small-caps;
+			padding-left: 1rem;
+			line-height: 1.5rem;
+			height: 11rem;
+		}
+		.insta{
+			text-decoration: underline 0.1rem rgb(210, 210, 205);
+			line-height: 2.25rem;
+			font-style: italic;
+		}
+    </style>
+	<script>
+	function cargarChicas(){
+		const chicasJSON = "{\
+		  \"chicas\": [\
+			{\
+			  \"nombre\": \"Angy Pavía Bellver\",\
+			  \"instagram\": \"power_hors3\",\
+			  \"carpeta\": \"power_horse\"\
+			},\
+			{\
+			  \"nombre\": \"Betina De Jong\",\
+			  \"instagram\": \"Betina De Jong\",\
+			  \"carpeta\": \"betina\"\
+			},\
+			{\
+			  \"nombre\": \"Tamara Almarcha\",\
+			  \"instagram\": \"tamara_almarcha\",\
+			  \"carpeta\": \"tamara\"\
+			},\
+			{\
+			  \"nombre\": \"Alba\",\
+			  \"instagram\": \"albilifts\",\
+			  \"carpeta\": \"albilifts\"\
+			},\
+			{\
+			  \"nombre\": \"Ana Senar\",\
+			  \"instagram\": \"anasenaaaar\",\
+			  \"carpeta\": \"anasenar\"\
+			},\
+			{\
+			  \"nombre\": \"Andrea Campos\",\
+			  \"instagram\": \"andreacampos02_\",\
+			  \"carpeta\": \"andreacampos02_\"\
+			},\
+			{\
+			  \"nombre\": \"Andrea Bernabé Pérez\",\
+			  \"instagram\": \"andreew.2\",\
+			  \"carpeta\": \"andreew.2\"\
+			},\
+			{\
+			  \"nombre\": \"Ariadna Mena\",\
+			  \"instagram\": \"arimeinfitness\",\
+			  \"carpeta\": \"arimeinfitness\"\
+			},\
+			{\
+			  \"nombre\": \"Andrea Lérida\",\
+			  \"instagram\": \"lerida_lifts\",\
+			  \"carpeta\": \"lerida_lifts\"\
+			},\
+			{\
+			  \"nombre\": \"Micaela Vigueras López\",\
+			  \"instagram\": \"micalifts\",\
+			  \"carpeta\": \"micalifts\"\
+			},\
+			{\
+			  \"nombre\": \"Laura López Amores\",\
+			  \"instagram\": \"mussaxlaura\",\
+			  \"carpeta\": \"mussaxlaura\"\
+			},\
+			{\
+			  \"nombre\": \"Paula\",\
+			  \"instagram\": \"paulaferde\",\
+			  \"carpeta\": \"paulaferde\"\
+			},\
+			{\
+			  \"nombre\": \"Sin Reclamar\",\
+			  \"instagram\": \"sinreclamar\",\
+			  \"carpeta\": \"sinreclamar\"\
+			}\
+		  ]\
+		}";
+		const bd = JSON.parse(chicasJSON);
+		var lista = document.getElementById("chicas");
+		for (let chica of bd.chicas) {
+			var nombre = chica['nombre'];
+			var instagram = chica['instagram'];
+			var carpeta = chica['carpeta'];
+			const girl = "\
+			<div id=\""+nombre+"\" class=\"girl\">\
+				<a href=\"https://www.instagram.com/"+instagram+"/\" target=\"_blank\">\
+					<img src=\"recursos/imagenes/"+carpeta+".jpg\" class=\"presentation\">\
+				</a>\
+				<div class=\"info\">\
+					<h3 class=\"insta\"><a href=\"https://www.instagram.com/"+instagram+"/\" target=\"_blank\">@"+instagram+"</a></h3>\
+					<h4>"+nombre+"</h4>\
+					<a href=\"power/"+carpeta+"/fotos.zip\" download target=\"_blank\">Fotos</a>\
+				</div>\
+			</div>";
+			
+			var div_nombre =  document.createElement("div");
+			lista.appendChild(div_nombre);
+			div_nombre.outerHTML = girl;
+		}
+	}
+	</script>
+</head>
+<body>
+	<header>
+		<nav>
+			<h1 id="title">foto@mmoralitos99</h1>
+		</nav>
+	</header>
+	<main>
+	<div id="chicas">
+	</div>
+	<div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h2>Compilación de fotos sin reclamar</h2>
+	<a href=".\power\.misc\miscelanea.zip">Descargar</a>
+	<br>
+	<br>
+	<hr>
+	<br>
+	<br>
+	<style>
+	img{
+		height: 300px;
+		width: auto;
+		object-fit: scale-down;
+	}
+	</style>
+	<img src=".\power\.misc\2023-01-14 500.JPG" ><br>
+	<img src=".\power\.misc\2023-01-14 501.JPG"><br>
+	<img src=".\power\.misc\2023-01-14 566.JPG"><br>
+	<img src=".\power\.misc\2023-01-14 567.JPG"><br>
+	<img src=".\power\.misc\2023-01-14 568.JPG"><br>
+	<img src=".\power\.misc\2023-01-14 569.JPG"><br>
+	</div>
+	</main>
+	<script>
+		cargarChicas();
+	</script>
+</body>
+</html>
