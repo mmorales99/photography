@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>@mmoralitos99</title>
+	<title>FotoBar@mmoralitos99</title>
 	<meta name="description" content="Fotografías hechas por Manolo, aquí se pueden descargar."/>
 	<link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet"/>
 	<style>
@@ -73,7 +73,8 @@
 			{\
 			  \"nombre\": \"Angy Pavía Bellver\",\
 			  \"instagram\": \"power_hors3\",\
-			  \"carpeta\": \"power_horse\"\
+			  \"carpeta\": \"power_horse\",\
+			  \"total_fotos\":\"8\"\
 			},\
 			{\
 			  \"nombre\": \"Betina De Jong\",\
@@ -88,7 +89,8 @@
 			{\
 			  \"nombre\": \"Alba\",\
 			  \"instagram\": \"albilifts\",\
-			  \"carpeta\": \"albilifts\"\
+			  \"carpeta\": \"albilifts\",\
+			  \"total_fotos\":\"4\"\
 			},\
 			{\
 			  \"nombre\": \"Ana Senar\",\
@@ -113,12 +115,14 @@
 			{\
 			  \"nombre\": \"Andrea Lérida\",\
 			  \"instagram\": \"lerida_lifts\",\
-			  \"carpeta\": \"lerida_lifts\"\
+			  \"carpeta\": \"lerida_lifts\",\
+			  \"total_fotos\":\"2\"\
 			},\
 			{\
 			  \"nombre\": \"Micaela Vigueras López\",\
 			  \"instagram\": \"micalifts\",\
-			  \"carpeta\": \"micalifts\"\
+			  \"carpeta\": \"micalifts\",\
+			  \"total_fotos\":\"3\"\
 			},\
 			{\
 			  \"nombre\": \"Laura López Amores\",\
@@ -143,16 +147,29 @@
 			var nombre = chica['nombre'];
 			var instagram = chica['instagram'];
 			var carpeta = chica['carpeta'];
-			const girl = "\
+			var girl = "\
 			<div id=\""+nombre+"\" class=\"girl\">\
 				<a href=\"https://www.instagram.com/"+instagram+"/\" target=\"_blank\">\
 					<img src=\"recursos/imagenes/"+carpeta+".jpg\" class=\"presentation\">\
 				</a>\
 				<div class=\"info\">\
 					<h3 class=\"insta\"><a href=\"https://www.instagram.com/"+instagram+"/\" target=\"_blank\">@"+instagram+"</a></h3>\
-					<h4>"+nombre+"</h4>\
-					<a href=\"power/"+carpeta+"/fotos.zip\" download target=\"_blank\">Fotos</a>\
-				</div>\
+					<h4>"+nombre+"</h4>";
+			if(chica['total_fotos'] != undefined)
+			{
+				debugger;
+				for(let i = 0; i < parseInt(chica['total_fotos']);i++){
+					if(i == 0) {
+						girl += "<span> <a href=\"power/"+carpeta+"/fotos.zip\" download target=\"_blank\"> Fotos 1</a>";
+					}
+					else {
+						var sum = i + 1;
+						girl += "<a href=\"power/"+carpeta+"/fotos"+i+".zip\" download target=\"_blank\"> "+ sum +" </a>";
+					}	
+				}
+				girl += "</span>";
+			}else{ girl += "<a href=\"power/"+carpeta+"/fotos.zip\" download target=\"_blank\">Fotos</a>"; }
+			girl += "</div>\
 			</div>";
 			
 			var div_nombre =  document.createElement("div");
